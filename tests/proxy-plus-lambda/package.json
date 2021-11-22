@@ -1,0 +1,15 @@
+{
+  "name": "proxy-plus-lambda",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "pack": "npm-pack-zip"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "npm-pack-zip": "^1.2.9"
+  }
+}
