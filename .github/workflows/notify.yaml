@@ -1,4 +1,4 @@
-name: notify ms teams ci-cd channel
+name: notify-ms-teams-cicd-channel
 
 on:
   push:
