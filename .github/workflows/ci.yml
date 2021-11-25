@@ -12,11 +12,11 @@ jobs:
           fetch-depth: 0
       - name: Terraform Install
         uses: hashicorp/setup-terraform@v1
-      - name: tfm-validate
-        run: |
-          chmod +x -R ./scripts
-          ./scripts/tfm_init.sh
-
+      - name: Validate Terraform
+        uses: ohpensource/platform-cicd/actions/terraform/tfm-validate@2.3.4.1
+        with:
+          terraform-folder: .
+          use-backend: false
       - name: Lint Terraform
         run: terraform fmt -write=false -list=true -recursive -check
 
@@ -35,7 +35,7 @@ jobs:
       - name: Render terraform docs inside the README.md and push changes back to PR branch
         uses: terraform-docs/gh-actions@v0.11.0
         with:
-          working-dir: modules/central-apigw,modules/private,modules/proxy-plus-lambda,modules/waf
+          working-dir: .
           output-file: README.md
           output-method: inject
           git-push: "true"
