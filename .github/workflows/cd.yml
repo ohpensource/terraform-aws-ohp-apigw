@@ -9,7 +9,6 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-          token: ${{ secrets.CICD_GITHUB_REPOSITORY_TOKEN }}
       - uses: ohpensource/platform-cicd/actions/git/generate-version-and-release-notes@2.3.4.1
         name: semver & changelog
         with:
