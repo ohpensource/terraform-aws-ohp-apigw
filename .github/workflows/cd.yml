@@ -9,9 +9,11 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - name: semver & changelog
-        run: |
-          date > generated.txt
-          git config user.name github-svc
-          git config user.email github-svc@ohpen.com
-          node ./scripts/generate-version-and-release-notes.js
+          token: ${{ secrets.CICD_GITHUB_REPOSITORY_TOKEN }}
+      - uses: ohpensource/platform-cicd/actions/git/generate-version-and-release-notes@2.3.4.1
+        name: semver & changelog
+        with:
+          user-email: "github-svc@ohpen.com"
+          user-name: "GitHub Actions"
+      - id: semver
+        run: echo "::set-output name=service-version::$(cat ./version.json | jq -r '.version')"
