@@ -41,4 +41,3 @@ jobs:
           git-push: "true"
           indention: 3
           git-commit-message: "[tfm-docs][skip ci] - updating terraform docs"
-          
