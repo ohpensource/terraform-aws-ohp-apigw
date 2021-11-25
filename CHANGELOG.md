@@ -1,3 +1,9 @@
+# :confetti_ball: 0.0.1.0 (2021-11-25T09:57:22.035Z)
+- - -
+## :bug: Fixes
+* semver
+- - -
+- - -
 # :confetti_ball: 0.0.0 (2021-11-22T12:02:28.656Z)
 - - -
 ## :newspaper: Others
