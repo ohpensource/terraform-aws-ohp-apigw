@@ -35,9 +35,10 @@ jobs:
       - name: Render terraform docs inside the README.md and push changes back to PR branch
         uses: terraform-docs/gh-actions@v0.11.0
         with:
-          working-dir: .
+          working-dir: modules/central-apigw,modules/private,modules/proxy-plus-lambda,modules/waf
           output-file: README.md
           output-method: inject
           git-push: "true"
           indention: 3
           git-commit-message: "[tfm-docs][skip ci] - updating terraform docs"
+          
