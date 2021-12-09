@@ -13,7 +13,7 @@ jobs:
       - name: Terraform Install
         uses: hashicorp/setup-terraform@v1
       - name: Validate Terraform
-        uses: ohpensource/platform-cicd/actions/terraform/tfm-validate@2.3.4.1
+        uses: ohpensource/platform-cicd/actions/terraform/tfm-validate@2.3.7.0
         with:
           terraform-folder: .
           use-backend: false

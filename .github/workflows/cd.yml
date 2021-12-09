@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v2
         with:
           fetch-depth: 0
-      - uses: ohpensource/platform-cicd/actions/git/generate-version-and-release-notes@2.3.4.1
+      - uses: ohpensource/platform-cicd/actions/git/generate-version-and-release-notes@2.3.7.0
         name: semver & changelog
         with:
           user-email: "github-svc@ohpen.com"
