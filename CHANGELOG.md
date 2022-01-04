@@ -1,3 +1,9 @@
+# :confetti_ball: 0.0.1.1 (2022-01-04T08:07:44.267Z)
+- - -
+## :newspaper: Others
+* Merge pull request #9 from ohpensource/dependabot/github_actions/ohpensource/platform-cicd-2.6.0.0
+- - -
+- - -
 # :confetti_ball: 0.0.1.0 (2021-11-25T09:57:22.035Z)
 - - -
 ## :bug: Fixes
