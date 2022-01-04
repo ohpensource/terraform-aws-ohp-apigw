@@ -24,7 +24,7 @@ variable "xray_tracing_enabled" {
 }
 variable "endpoint_configuration" {
   type    = string
-  default = "REGIONAL"
+  default = "PRIVATE"
 }
 
 variable "cloudwatch_logs_retention_in_days" {
@@ -35,4 +35,9 @@ variable "cloudwatch_logs_retention_in_days" {
 variable "authorization" {
   type    = string
   default = "NONE"
+}
+
+variable "source_vpce_ids" {
+  type        = list(any)
+  description = "List of VPC endpoint IDs that are allowed to call the API Gateway"
 }

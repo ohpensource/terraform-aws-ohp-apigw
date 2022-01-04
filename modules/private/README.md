@@ -51,8 +51,9 @@ No modules.
 | <a name="input_apigw_config"></a> [apigw\_config](#input\_apigw\_config) | n/a | <pre>map(object({<br>    name             = string<br>    path             = string<br>    method           = string<br>    integration_type = string<br>    integration_arn  = string<br>  }))</pre> | n/a | yes |
 | <a name="input_authorization"></a> [authorization](#input\_authorization) | n/a | `string` | `"NONE"` | no |
 | <a name="input_cloudwatch_logs_retention_in_days"></a> [cloudwatch\_logs\_retention\_in\_days](#input\_cloudwatch\_logs\_retention\_in\_days) | n/a | `number` | `3` | no |
-| <a name="input_endpoint_configuration"></a> [endpoint\_configuration](#input\_endpoint\_configuration) | n/a | `string` | `"REGIONAL"` | no |
+| <a name="input_endpoint_configuration"></a> [endpoint\_configuration](#input\_endpoint\_configuration) | n/a | `string` | `"PRIVATE"` | no |
 | <a name="input_region_id"></a> [region\_id](#input\_region\_id) | variable "service\_name" { type = string } variable "service\_suffix" { type = string } variable "project\_name" { type = string } | `string` | n/a | yes |
+| <a name="input_source_vpce_ids"></a> [source\_vpce\_ids](#input\_source\_vpce\_ids) | List of VPC endpoint IDs that are allowed to call the API Gateway | `list(any)` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | n/a | `map(any)` | n/a | yes |
 | <a name="input_xray_tracing_enabled"></a> [xray\_tracing\_enabled](#input\_xray\_tracing\_enabled) | n/a | `bool` | `false` | no |
 
