@@ -1,3 +1,9 @@
+# :confetti_ball: 0.0.1.3 (2022-01-04T16:01:51.677Z)
+- - -
+## :newspaper: Others
+* Merge pull request #11 from ohpensource/feature/s3-encrypt
+- - -
+- - -
 # :confetti_ball: 0.0.1.2 (2022-01-04T08:27:38.893Z)
 - - -
 ## :newspaper: Others
