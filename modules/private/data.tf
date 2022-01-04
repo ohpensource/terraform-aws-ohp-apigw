@@ -10,8 +10,18 @@ data "aws_iam_policy_document" "api_policy" {
       type        = "*"
       identifiers = ["*"]
     }
+  }
+  statement {
+    sid       = "ApiPolicyDeny"
+    effect    = "Deny"
+    actions   = ["execute-api:Invoke"]
+    resources = ["${aws_api_gateway_rest_api.default.execution_arn}/*/*/*"]
+    principals {
+      type        = "*"
+      identifiers = ["*"]
+    }
     condition {
-      test     = "StringEquals"
+      test     = "StringNotEquals"
       variable = "aws:sourceVpce"
       values   = var.source_vpce_ids
     }
