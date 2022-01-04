@@ -1,3 +1,9 @@
+# :confetti_ball: 0.0.1.2 (2022-01-04T08:27:38.893Z)
+- - -
+## :newspaper: Others
+* Merge pull request #10 from ohpensource/feature/update-resource-policy
+- - -
+- - -
 # :confetti_ball: 0.0.1.1 (2022-01-04T08:07:44.267Z)
 - - -
 ## :newspaper: Others
