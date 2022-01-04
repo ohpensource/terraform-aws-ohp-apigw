@@ -10,6 +10,11 @@ data "aws_iam_policy_document" "api_policy" {
       type        = "*"
       identifiers = ["*"]
     }
+    condition {
+      test     = "StringEquals"
+      variable = "aws:sourceVpce"
+      values   = var.source_vpce_ids
+    }
   }
 }
 

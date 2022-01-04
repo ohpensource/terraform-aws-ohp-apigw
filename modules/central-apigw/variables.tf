@@ -68,3 +68,8 @@ locals {
 
 }
 
+variable "api_resource_policy" {
+  type        = string
+  description = "JSON formatted policy document that controls access to the API Gateway"
+  default     = null
+}

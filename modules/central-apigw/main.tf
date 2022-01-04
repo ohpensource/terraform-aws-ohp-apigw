@@ -13,11 +13,6 @@ resource "aws_api_gateway_domain_name" "main" {
   }
 }
 
-# API Account Settings
-resource "aws_api_gateway_account" "main" {
-  cloudwatch_role_arn = aws_iam_role.main.arn
-}
-
 # Rest API
 resource "aws_api_gateway_rest_api" "main" {
   name = var.name
@@ -31,7 +26,7 @@ resource "aws_api_gateway_rest_api" "main" {
 resource "aws_api_gateway_rest_api_policy" "main" {
   rest_api_id = aws_api_gateway_rest_api.main.id
 
-  policy = data.aws_iam_policy_document.api_policy.json
+  policy = var.api_resource_policy == null ? data.aws_iam_policy_document.api_policy.json : var.api_resource_policy
 
 }
 
@@ -86,6 +81,7 @@ resource "aws_api_gateway_method" "ping" {
     ignore_changes = [http_method, authorization]
   }
 }
+
 resource "aws_api_gateway_integration" "ping" {
   http_method = aws_api_gateway_method.ping.http_method
   resource_id = aws_api_gateway_resource.ping.id
@@ -94,4 +90,49 @@ resource "aws_api_gateway_integration" "ping" {
   lifecycle {
     ignore_changes = all
   }
+}
+
+resource "aws_api_gateway_method_response" "response_200" {
+  rest_api_id = aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.ping.id
+  http_method = aws_api_gateway_method.mpingain.http_method
+  status_code = 200
+  response_models = {
+    "application/json" = aws_api_gateway_model.empty.name
+  }
+
+  depends_on = [
+    aws_api_gateway_integration.main
+
+  ]
+}
+
+resource "aws_api_gateway_integration_response" "main" {
+  rest_api_id = data.aws_api_gateway_rest_api.main.id
+  resource_id = aws_api_gateway_resource.ping.id
+  http_method = aws_api_gateway_method.ping.http_method
+  status_code = aws_api_gateway_method_response.response_200.status_code
+
+  response_templates = {
+    "application/json" = ""
+  }
+
+  depends_on = [
+    aws_api_gateway_integration.ping,
+    aws_api_gateway_method_response.response_200
+  ]
+}
+
+resource "aws_api_gateway_model" "empty" {
+  rest_api_id  = data.aws_api_gateway_rest_api.main.id
+  name         = "Empty"
+  content_type = "application/json"
+
+  schema = <<EOF
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title" : "Empty Schema",
+  "type" : "object"
+}
+EOF
 }

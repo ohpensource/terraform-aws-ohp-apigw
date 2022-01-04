@@ -11,11 +11,6 @@ data "aws_iam_policy_document" "api_policy" {
       type        = "*"
       identifiers = ["*"]
     }
-    condition {
-      test     = "IpAddress"
-      variable = "aws:SourceIp"
-      values   = var.waf_allowed_ips
-    }
   }
 }
 
