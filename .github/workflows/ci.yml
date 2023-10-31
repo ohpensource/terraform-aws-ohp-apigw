@@ -11,7 +11,7 @@ jobs:
         with:
           fetch-depth: 0
       - name: Terraform Install
-        uses: hashicorp/setup-terraform@v1
+        uses: hashicorp/setup-terraform@v3
       - name: Validate Terraform
         uses: ohpensource/platform-cicd/actions/terraform/tfm-validate@2.6.0.0
         with:
